@@ -1,0 +1,130 @@
+.header__nav {
+    display: flex;
+    overflow: hidden;
+}
+
+.header__logo {
+    flex: 1;
+    display: flex;
+    position: relative;
+    padding: 20px;
+}
+
+.header__logo-overlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    background-color: var(--primary-color);
+    z-index: -1;
+}
+
+.header__logo h4 {
+    padding-left: 30px;
+    font-weight: 700;
+    font-size: 24px;
+    text-transform: uppercase;
+    font-family: var(--playfair-display);
+    color: #fff;
+    opacity: 0.8;
+}
+
+.header__menu {
+    padding: 20px;
+    flex: 1.236;   
+    display: flex; /*header offset fix*/
+    align-items: center;
+    justify-content: flex-end;
+    gap: 64px;
+    list-style: none;
+}
+
+.header__menu li {
+    font-weight: 500;
+    font-family: var(--plus-jakarta-sans);
+    color: var(--secondary-color);
+    font-size: 16px;
+    text-transform: uppercase;
+    line-height: 20px;
+    cursor: pointer;
+}
+
+.header__menu li img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.header__menu li:hover {
+    color: var(--primary-color);
+}
+
+.header__menu-mobile {
+    display: none;
+    margin: 14px 20px 0 0;
+    position: relative;
+    list-style: none;
+}
+
+.header__menu-mobile img {
+    width: 35px;
+    height: 35px;
+}
+
+@keyframes slide-left {
+    0% {
+        left: 100%;
+    }
+
+    100% {
+        left: 0;
+    }
+}
+
+@keyframes slide-right {
+    0% {
+        left: 0;
+    }
+
+    100% {
+        left: 100%;
+    }
+} 
+
+/* Menu Burger */
+
+@media screen and (max-width: 900px) {
+
+    #burger-icon {
+        display: block;
+    }
+
+    #close-icon {
+        display: none;
+    }
+
+    .mobile {
+        z-index: 10;
+        position: absolute;
+        top: 7%;
+        width: 100%;
+        height: 93%;
+        flex-direction: column;
+        background-color: var(--primary-color);
+        justify-content: space-evenly;
+        animation: slide-left .5s cubic-bezier(.25, .46, .45, .94) both;
+    }
+
+    .header__menu li {
+        font-size: 1.3rem;
+    }
+
+    .header__menu li:hover {
+        color: white;
+    }
+}
+
+@media screen and (min-width: 900px){
+    .header__menu {
+        display: flex !important;
+    }
+}
